@@ -1,1 +1,1 @@
-web: gunicorn weight_webapp:application --log-file -
+web: gunicorn weight_webapp:app --log-file=-
