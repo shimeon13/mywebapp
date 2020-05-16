@@ -1,1 +1,1 @@
-web: gunicorn --chdir weight_webapp --log-file -
+web: gunicorn weight_webapp:application --log-file -
