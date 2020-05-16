@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>体重計算2</title>
+</head>
+<body>
+<form action="weight_calculate_output" method="POST">
+  {% csrf_token %}
+性別を選択してください：
+    <input type="radio" name="gender" value="0">男性
+    <input type="radio" name="gender" value="1">女性
+<br>
+身長(cm)を入力してください：
+    <input name="height" type="text">
+<br>
+体重(kg)を入力してください：
+    <input name="weight" type="text">
+<br>
+    <input type="submit" value="送信"><input type="reset" value="リセット">
+</form>
+<br>
+{% if gender %}
+    予測体重は{{ pbw }}kgです。<br>
+    除脂肪体重は{{ lbw }}kgです。<br>
+    理想体重は{{ ibw }}kgです。
+{% endif %}
+</body>
+</html>

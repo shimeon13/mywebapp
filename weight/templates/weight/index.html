@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <p>Hello, World.</p>
+    <a href="{% url "weight_calculate_input" %}">体重計算へ</a>
+    <form action="/cgi-bin/weight_calculate.py" method="POST">
+      <input type="text" name="foo">
+      <input type="text" name="bar">
+      <input type="submit">
+    </form>
+  </body>
+</html>
+cgi-bin/weight_calculate.py
