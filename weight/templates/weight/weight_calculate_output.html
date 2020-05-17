@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>体重　計算結果</title>
-  </head>
-  <body>
-    あなたの性別・身長・体重は、
-    {% if gender == 0 %}
-      男性・{{ height }}cm・{{ weight }}kgです。<br>
-    {% else %}
-      女性・{{ height }}cm・{{ weight }}kgです。<br>
-    {% endif %}
-    予測体重は、{{ pbw }}kgです。<br>
-    除脂肪体重は、{{ lbw }}kgです。<br>
-    理想体重は、{{ ibw }}kgです。<br>
-  <br>
-  <a href="{% url "weight_calculate_input" %}>戻る</a>
-  </body>
-</html>
+{% extends "weight/index.html" %}
+
+{% block title %}体重計算 結果{% endblock %}
+
+{% block content %}
+<div class ="container">
+  <div class="card bg-light mb-3">
+    <div class="card-header">体重計算</div>
+      <div class="card-body">
+        <p class="card-text">
+          あなたの性別・身長・体重は、
+          {% if gender == 0 %}
+            男性・{{ height }}cm・{{ weight }}kgです。<br>
+          {% else %}
+            女性・{{ height }}cm・{{ weight }}kgです。<br>
+          {% endif %}
+          予測体重は、{{ pbw }}kgです。<br>
+          除脂肪体重は、{{ lbw }}kgです。<br>
+          理想体重は、{{ ibw }}kgです。<br>
+        </p>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-back" onclick="location.href='{% url "weight_calculate_input" %}'">戻る</button>
+    <button type="button" class="btn btn-outline-top" onclick="location.href='{% url "index" %}'">トップページへ</button>
+  </div>
+
+{% endblock %}
