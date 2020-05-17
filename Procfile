@@ -1,1 +1,1 @@
-web: gunicorn weight:app --log-file=-
+web: gunicorn weight:apps --log-file=-
