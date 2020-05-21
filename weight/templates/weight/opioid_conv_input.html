@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends "weight/index.html" %}
+
+{% block title %}麻薬換算{% endblock %}
+
+{% block content %}
+<div class ="container">
+  <div class="card bg-light mb-3">
+    <div class="card-header">麻薬換算</div>
+      <div class="card-body">
+        <form action="opioid_conv_output" method="POST">
+          {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleSelect1">麻薬の種類を選んでください</label>
+              　<select class="form-control" id="exampleSelect1" name="opioid_use">
+              　  <option value="経口トラマドール">経口トラマドール</option>
+              　  <option value="経口タペンタドール">経口タペンタドール</option>
+              　  <option value="経口ヒドロモルフォン">経口ヒドロモルフォン</option>
+              　  <option value="経口モルヒネ">経口モルヒネ</option>
+              　  <option value="経口オキシコドン">経口オキシコドン</option>
+              　  <option value="坐剤モルヒネ">坐剤モルヒネ</option>
+              　  <option value="注射モルヒネ">注射モルヒネ</option>
+              　  <option value="注射フェンタニル">注射フェンタニル</option>
+                  <option value="注射オキシコドン">注射オキシコドン</option>
+                  <option value="フェントステープ">フェントステープ</option>
+                  <option value="デュロテップパッチ">デュロテップパッチ</option>
+              　</select>
+            　</div>
+            <div class="form-group">
+              <label class="col-form-label" for="inputDefault">
+                投与量(mg/日)を入力してください
+              </label>
+              <input type="text" class="form-control" placeholder="投与量(mg/日)" id="inputDefault" name="opioid_dose">
+            </div>
+          <button type="submit" class="btn btn-primary">送信</button>
+        </form>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-top" onclick="location.href='{% url "index" %}'">トップページへ</button>
+  </div>
+
+{% endblock %}

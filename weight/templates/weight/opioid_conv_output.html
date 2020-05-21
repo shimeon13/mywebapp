@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends "weight/index.html" %}
+
+{% block title %}麻薬換算 結果{% endblock %}
+
+{% block content %}
+<div class ="container">
+  <div class="card bg-light mb-3">
+    <div class="card-header">麻薬換算</div>
+      <div class="card-body">
+        <p class="card-text">
+          {{ opioid_use }} {{ opioid_dose }} mg/日は、
+          <br><br>
+          経口トラマドール {{ conv_opioids.0 }} mg/日<br>
+          経口タペンタドール {{ conv_opioids.1 }} mg/日<br>
+          経口ヒドロモルフォン {{ conv_opioids.2 }} mg/日<br>
+          経口モルヒネ {{ conv_opioids.3 }} mg/日<br>
+          経口オキシコドン {{ conv_opioids.4 }} mg/日<br>
+          坐剤モルヒネ {{ conv_opioids.5 }} mg/日<br>
+          注射モルヒネ {{ conv_opioids.6 }} mg/日<br>
+          注射フェンタニル {{ conv_opioids.7 }} mg/日<br>
+          注射オキシコドン {{ conv_opioids.8 }} mg/日<br>
+          フェントステープ {{ conv_opioids.9 }} mg/日<br>
+          デュロテップパッチ {{ conv_opioids.10|floatformat:2 }} mg/日<br>
+          に換算されます。
+         </p>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-back" onclick="location.href='{% url "opioid_conv_input" %}'">戻る</button>
+    <button type="button" class="btn btn-outline-top" onclick="location.href='{% url "index" %}'">トップページへ</button>
+  </div>
+
+{% endblock %}
